@@ -1,4 +1,3 @@
-#[cfg(test)]
-mod tests{
-    use calculator::*;
+pub fn add(numbers:&str) -> i32 {
+    -1
 }
