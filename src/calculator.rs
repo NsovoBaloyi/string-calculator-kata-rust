@@ -12,9 +12,19 @@ pub fn add(numbers:&str) -> i32 {
 }
 
 fn parse_numbers(numbers:&str) -> Vec<i32>{
-    let re = Regex::new(r"[,|\n]+").unwrap();
+    let mut del = r"[,|\n]";
+    let values;
+    
+    if numbers.starts_with("//"){
+        del = &numbers[2..3];
+        values = &numbers[4..];
+    }else {
+        values = &numbers;
+    }
 
-    re.split(numbers).map(|i| i.trim().parse::<i32>().unwrap()).collect::<Vec<i32>>()
+    let re = Regex::new(del).unwrap();
+
+    re.split(values).map(|i| i.trim().parse::<i32>().unwrap()).collect::<Vec<i32>>()
 }
 
 fn sum_list(list:Vec<i32>) -> i32 {
