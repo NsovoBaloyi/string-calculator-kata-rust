@@ -14,7 +14,7 @@ mod tests{
     }
 
     #[test]
-    fn return_sum_of__unknown_number_of_comma_separated_values(){
+    fn return_sum_of_unknown_number_of_comma_separated_values(){
         assert_eq!(10, add("1,2,3,4"));
     }
 
