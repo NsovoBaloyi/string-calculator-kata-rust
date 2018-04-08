@@ -8,7 +8,7 @@ pub fn add(numbers:&str) -> i32 {
         0
     }
     else{
-         sum_list(parse_numbers(numbers))
+         sum_list(validate(parse_numbers(numbers)))
     }
 }
 
@@ -30,6 +30,16 @@ fn parse_numbers(numbers:&str) -> Vec<i32>{
     let re = Regex::new(&*del.replace("][", "|").add("+")).unwrap();
 
     re.split(values).map(|i| i.trim().parse::<i32>().unwrap()).collect::<Vec<i32>>()
+}
+
+fn validate(list:Vec<i32>) -> Vec<i32> {
+    let negatives = list.clone().into_iter().filter(|i| i < &0).collect::<Vec<i32>>();
+
+    if !negatives.is_empty(){
+        panic!("Negatives not allowed: {:?}", negatives);
+    }
+
+    list
 }
 
 fn sum_list(list:Vec<i32>) -> i32 {
