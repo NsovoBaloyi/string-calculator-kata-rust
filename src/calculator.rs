@@ -12,7 +12,7 @@ pub fn add(numbers:&str) -> i32 {
 }
 
 fn parse_numbers(numbers:&str) -> Vec<i32>{
-    let re = Regex::new(r"[,]+").unwrap();
+    let re = Regex::new(r"[,|\n]+").unwrap();
 
     re.split(numbers).map(|i| i.trim().parse::<i32>().unwrap()).collect::<Vec<i32>>()
 }
