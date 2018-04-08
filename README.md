@@ -1,1 +1,2 @@
-# string-calculator-kata-rust
+### String Calculator Kata in Rust
+----
