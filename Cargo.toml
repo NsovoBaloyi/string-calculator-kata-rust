@@ -1,0 +1,7 @@
+[package]
+name = "string_calculator"
+version = "0.1.0"
+authors = ["Nsovo Baloyi <NsovoBaloyi@users.noreply.github.com>"]
+
+[dependencies]
+regex="0.2"
