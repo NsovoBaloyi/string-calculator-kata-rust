@@ -2,6 +2,8 @@ use regex::Regex;
 use std::vec::Vec;
 use std::ops::Add;
 
+/**
+*/
 pub fn add(numbers:&str) -> i32 {
 
     if numbers.is_empty(){
@@ -13,6 +15,9 @@ pub fn add(numbers:&str) -> i32 {
     }
 }
 
+
+/**
+*/
 fn parse_numbers(numbers:&str) -> Vec<i32>{
     let mut del = r"[,|\n]";
     let mut values;
@@ -33,6 +38,8 @@ fn parse_numbers(numbers:&str) -> Vec<i32>{
     re.split(values).map(|i| i.trim().parse::<i32>().unwrap()).collect::<Vec<i32>>()
 }
 
+/**
+*/
 fn validate(list:Vec<i32>) -> Vec<i32> {
     let negatives = list.clone().into_iter().filter(|i| i < &0 ).collect::<Vec<i32>>();
 
