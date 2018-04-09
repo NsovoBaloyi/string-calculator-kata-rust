@@ -8,7 +8,7 @@ pub fn add(numbers:&str) -> i32 {
         0
     }
     else{
-         sum_list(filter_numbers(validate(parse_numbers(numbers))))
+         validate(parse_numbers(numbers)).into_iter().sum()
     }
 }
 
@@ -39,12 +39,12 @@ fn validate(list:Vec<i32>) -> Vec<i32> {
         panic!("Negatives not allowed: {:?}", negatives);
     }
 
-    list
-}
-
-fn filter_numbers(list:Vec<i32>) -> Vec<i32> {
     list.into_iter().filter(|i| i < &1001).collect::<Vec<i32>>()
 }
+
+/*fn filter_numbers(list:Vec<i32>) -> Vec<i32> {
+    list.into_iter().filter(|i| i < &1001).collect::<Vec<i32>>()
+}*/
 
 fn sum_list(list:Vec<i32>) -> i32 {
     list.into_iter().sum()
