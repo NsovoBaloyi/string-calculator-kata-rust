@@ -20,7 +20,7 @@ pub fn add(numbers:&str) -> i32 {
 */
 fn parse_numbers(numbers:&str) -> Vec<i32>{
     let mut del = r"[,|\n]";
-    let mut values;
+    let mut values = numbers;
 
     if numbers.starts_with("//["){
         del = &numbers[2..numbers.find("\n").unwrap()];
@@ -29,8 +29,6 @@ fn parse_numbers(numbers:&str) -> Vec<i32>{
     else if numbers.starts_with("//"){
         del = &numbers[2..3];
         values = &numbers[4..];
-    }else {
-        values = &numbers;
     }
 
     let re = Regex::new(&*del.replace("][", "|").add("+")).unwrap();
